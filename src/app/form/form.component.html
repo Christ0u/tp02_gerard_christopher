@@ -37,7 +37,12 @@
             <label for="email">Email*</label>
             <input type="email" class="form-control" id="email" name="email" placeholder="example@example.com"
                 [(ngModel)]="email">
-            <small class="form-text text-muted">Nous ne partagerons jamais votre e-mail avec quelqu'un d'autre.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Téléphone</label>
+            <input type="tel" class="form-control" id="phone" name="phone" placeholder="01 23 45 67 89"
+                [(ngModel)]="phone">
         </div>
 
         <div class="form-group">
@@ -48,20 +53,18 @@
 
         <div class="form-group">
             <label for="passwordValidation">Confirmation du mot de passe*</label>
-            <input type="password" class="form-control" id="passwordValidation" placeholder="Mot de passe">
+            <input type="password" class="form-control" id="passwordValidation" name="passwordValidation"
+                placeholder="Validation du mot de passe" [(ngModel)]="passwordValidation">
         </div>
 
         <button type="submit" class="btn btn-primary" (click)="onSubmit()" [disabled]="!valid">Submit</button>
 
     </form>
 
-    <table class="table table-bordered" style="width: auto;">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Valeur</th>
-            </tr>
-        </thead>
+    <br>
+
+    <table class="table table-bordered" style="width: auto;" [hidden]="hidden">
+        <div class="alert alert-success" role="alert">Formulaire validé</div>
 
         <tbody>
             <tr>
@@ -81,14 +84,11 @@
                 <td>{{email}}</td>
             </tr>
             <tr>
-                <th>Mot de passe</th>
-                <td>{{password}}</td>
+                <th>Téléphone</th>
+                <td>{{phone}}</td>
             </tr>
 
         </tbody>
     </table>
-
-
-
 
 </body>
