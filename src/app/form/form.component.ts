@@ -8,12 +8,24 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './form.component.html',
   styleUrl: './form.component.css'
 })
+
 export class FormComponent {
-  nom : String = "Toto";
   valid : Boolean = true;
+  tableIsVisible = false;
+
+  civility : String = "";
+  firstName : String = "";
+  lastName : String = "";
+  email : String = "";
+  password : String = "";
 
   onSubmit()
   {
     this.valid = !this.valid;
+    if (this.civility == "" || this.firstName == "" || this.lastName == "" || this.email == "" || this.password == "")
+    {
+      alert("Tous les champs obligatoires (*) ne sont pas renseignés");
+      this.valid = !this.valid;
+    } 
   }
 }
