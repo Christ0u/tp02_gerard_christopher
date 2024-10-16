@@ -19,12 +19,17 @@ export class FormComponent {
   firstName: string = "";
   lastName: string = "";
   email: string = "";
+  login: string = "";
+  address: string = "";
+  zipCode: number | null = null;
+  city: string = "";
+  contry: string = "";
   phone: number | null = null;
   password: string = "";
   passwordValidation: string = "";
 
   onSubmit() {
-    if (this.civility == "" || this.firstName == "" || this.lastName == "" || this.email == "" || this.password == "" || this.passwordValidation == "") {
+    if (this.civility == "" || this.firstName == "" || this.lastName == "" || this.email == "" || this.login == "" || this.password == "" || this.passwordValidation == "") {
       alert("Tous les champs obligatoires (*) ne sont pas renseignés");
     }
     else {
