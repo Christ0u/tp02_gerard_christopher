@@ -10,156 +10,167 @@
 </head>
 
 <body>
-    <form>
+    <div class="container w-80">
+        <form [hidden]="hideForm">
+            <div class="form-group">
+                <label for="civility">Civilité*</label>
+                <select class="form-control" id="civility" name="civility" [(ngModel)]="civility">
+                    <option>👨 Monsieur</option>
+                    <option>👩 Madame</option>
+                    <option>🍕 Pizza</option>
+                </select>
+            </div>
 
-        <div class="form-group">
-            <label for="civility">Civilité*</label>
-            <select class="form-control" id="civility" name="civility" [(ngModel)]="civility">
-                <option>👨 Monsieur</option>
-                <option>👩 Madame</option>
-                <option>🍕 Pizza</option>
-            </select>
-        </div>
+            <div class="form-group">
+                <label for="firstName">Prénom*</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Justin"
+                    [(ngModel)]="firstName">
+            </div>
 
-        <div class="form-group">
-            <label for="firstName">Prénom*</label>
-            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Justin"
-                [(ngModel)]="firstName">
-        </div>
+            <div class="form-group">
+                <label for="lastName">Nom*</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Ptipeu"
+                    [(ngModel)]="lastName">
+            </div>
 
-        <div class="form-group">
-            <label for="lastName">Nom*</label>
-            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Ptipeu"
-                [(ngModel)]="lastName">
-        </div>
+            <div class="form-group">
+                <label for="email">Email*</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="example@example.com"
+                    (input)="onEmailInput()" [(ngModel)]="email">
+                <p class="alert alert-warning" [hidden]="hideInvalidEmailMessage">L'email fournie n'a pas un format
+                    valide</p>
+            </div>
 
-        <div class="form-group">
-            <label for="email">Email*</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="example@example.com"
-                [(ngModel)]="email">
-        </div>
+            <div class="form-group">
+                <label for="login">Login*</label>
+                <input type="text" class="form-control" id="login" name="login" placeholder="prenom.nom"
+                    [(ngModel)]="login">
+            </div>
 
-        <div class="form-group">
-            <label for="login">Login*</label>
-            <input type="text" class="form-control" id="login" name="login" placeholder="prenom.nom"
-                [(ngModel)]="login">
-        </div>
+            <div class="form-group">
+                <label for="address">Adresse</label>
+                <input type="text" class="form-control" id="address" name="address" placeholder="35 rue de la Charmille"
+                    [(ngModel)]="address">
+            </div>
 
-        <div class="form-group">
-            <label for="address">Adresse</label>
-            <input type="text" class="form-control" id="address" name="address" placeholder="35 rue de la Charmille"
-                [(ngModel)]="address">
-        </div>
+            <div class="form-group">
+                <label for="zipCode">Code Postal</label>
+                <input type="number" class="form-control" id="zipCode" name="zipCode" placeholder="67000"
+                    [(ngModel)]="zipCode">
+            </div>
 
-        <div class="form-group">
-            <label for="zipCode">Code Postal</label>
-            <input type="number" class="form-control" id="zipCode" name="zipCode" placeholder="67000"
-                [(ngModel)]="zipCode">
-        </div>
+            <div class="form-group">
+                <label for="city">Ville</label>
+                <input type="text" class="form-control" id="city" name="city" placeholder="Strasbourg"
+                    [(ngModel)]="city">
+            </div>
 
-        <div class="form-group">
-            <label for="city">Ville</label>
-            <input type="text" class="form-control" id="city" name="city" placeholder="Strasbourg"
-                [(ngModel)]="city">
-        </div>
+            <div class="form-group">
+                <label for="civility">Pays</label>
+                <select class="form-control" id="contry" name="contry" [(ngModel)]="contry">
+                    <option>🇺🇸 États-Unis</option>
+                    <option>🇬🇧 Royaume-Uni</option>
+                    <option>🇫🇷 France</option>
+                    <option>🇩🇪 Allemagne</option>
+                    <option>🇮🇹 Italie</option>
+                    <option>🇪🇸 Espagne</option>
+                    <option>🇷🇺 Russie</option>
+                    <option>🇨🇳 Chine</option>
+                    <option>🇯🇵 Japon</option>
+                    <option>🇧🇷 Brésil</option>
+                    <option>🇦🇺 Australie</option>
+                    <option>🇮🇳 Inde</option>
+                    <option>🇰🇷 Corée du Sud</option>
+                    <option>🇲🇽 Mexique</option>
+                    <option>🇸🇪 Suède</option>
+                    <option>🇳🇱 Pays-Bas</option>
+                    <option>🇧🇪 Belgique</option>
+                    <option>🇨🇦 Canada</option>
+                    <option>🇦🇷 Argentine</option>
+                    <option>🇿🇦 Afrique du Sud</option>
+                    <option>🇦🇪 Émirats Arabes Unis</option>
+                </select>
+            </div>
 
-        <div class="form-group">
-            <label for="civility">Pays</label>
-            <select class="form-control" id="contry" name="contry" [(ngModel)]="contry">
-                <option>🇺🇸 États-Unis</option>
-                <option>🇬🇧 Royaume-Uni</option>
-                <option>🇫🇷 France</option>
-                <option>🇩🇪 Allemagne</option>
-                <option>🇮🇹 Italie</option>
-                <option>🇪🇸 Espagne</option>
-                <option>🇷🇺 Russie</option>
-                <option>🇨🇳 Chine</option>
-                <option>🇯🇵 Japon</option>
-                <option>🇧🇷 Brésil</option>
-                <option>🇦🇺 Australie</option>
-                <option>🇮🇳 Inde</option>
-                <option>🇰🇷 Corée du Sud</option>
-                <option>🇲🇽 Mexique</option>
-                <option>🇸🇪 Suède</option>
-                <option>🇳🇱 Pays-Bas</option>
-                <option>🇧🇪 Belgique</option>
-                <option>🇨🇦 Canada</option>
-                <option>🇦🇷 Argentine</option>
-                <option>🇿🇦 Afrique du Sud</option>
-                <option>🇦🇪 Émirats Arabes Unis</option>
-            </select>
-        </div>
+            <div class="form-group">
+                <label for="phone">Téléphone</label>
+                <input type="tel" class="form-control" id="phone" name="phone" placeholder="01 23 45 67 89 / 0123456789 / +XXX123456789"
+                    (input)="onPhoneInput()" [(ngModel)]="phone">
+                <p class="alert alert-warning" [hidden]="hideInvalidPhoneMessage">Le numéro de téléphone fourni n'a pas
+                    un format valide</p>
+            </div>
 
-        <div class="form-group">
-            <label for="phone">Téléphone</label>
-            <input type="tel" class="form-control" id="phone" name="phone" placeholder="01 23 45 67 89"
-                [(ngModel)]="phone">
-        </div>
+            <div class="form-group">
+                <label for="password">Mot de passe*</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe"
+                    (input)="onPasswordInput()" [(ngModel)]=" password">
+            </div>
 
-        <div class="form-group">
-            <label for="password">Mot de passe*</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe"
-                [(ngModel)]="password">
-        </div>
+            <div class="form-group">
+                <label for="passwordValidation">Confirmation du mot de passe*</label>
+                <input type="password" class="form-control" id="passwordValidation" name="passwordValidation"
+                    placeholder="Validation du mot de passe" (input)="onPasswordInput()"
+                    [(ngModel)]="passwordValidation">
+                <p class="alert alert-warning" [hidden]="hidePasswordMismatchMessage">Les mots de passe ne correspondent
+                    pas
+                </p>
+                <p class="alert alert-success" [hidden]="hidePasswordMatchMessage">Les mots de passe correspondent</p>
+                <p class="alert alert-warning" [hidden]="hidePasswordLengthAlertMessage">Le mot de passe doit avoir une
+                    longueur supérieure à 8 caractères</p>
+            </div>
 
-        <div class="form-group">
-            <label for="passwordValidation">Confirmation du mot de passe*</label>
-            <input type="password" class="form-control" id="passwordValidation" name="passwordValidation"
-                placeholder="Validation du mot de passe" [(ngModel)]="passwordValidation">
-        </div>
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()"
+                [disabled]="!disableSubmitButton">Submit</button>
+        </form>
 
-        <button type="submit" class="btn btn-primary" (click)="onSubmit()" [disabled]="!valid">Submit</button>
+        <br>
 
-    </form>
+        <table class="table table-bordered" style="width: auto;" [hidden]="hideTable">
+            <div class="alert alert-success" role="alert">Formulaire validé</div>
 
-    <br>
+            <tbody>
+                <tr>
+                    <th>Civilité</th>
+                    <td>{{civility}}</td>
+                </tr>
+                <tr>
+                    <th>Prénom</th>
+                    <td>{{firstName}}</td>
+                </tr>
+                <tr>
+                    <th>Nom</th>
+                    <td>{{lastName}}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{email}}</td>
+                </tr>
+                <tr>
+                    <th>Login</th>
+                    <td>{{login}}</td>
+                </tr>
+                <tr>
+                    <th>Adresse</th>
+                    <td>{{address}}</td>
+                </tr>
+                <tr>
+                    <th>Code postal</th>
+                    <td>{{zipCode}}</td>
+                </tr>
+                <tr>
+                    <th>Ville</th>
+                    <td>{{city}}</td>
+                </tr>
+                <tr>
+                    <th>Pays</th>
+                    <td>{{contry}}</td>
+                </tr>
+                <tr>
+                    <th>Téléphone</th>
+                    <td>{{phone}}</td>
+                </tr>
 
-    <table class="table table-bordered" style="width: auto;" [hidden]="hidden">
-        <div class="alert alert-success" role="alert">Formulaire validé</div>
-
-        <tbody>
-            <tr>
-                <th>Civilité</th>
-                <td>{{civility}}</td>
-            </tr>
-            <tr>
-                <th>Prénom</th>
-                <td>{{firstName}}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{lastName}}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{email}}</td>
-            </tr>
-            <tr>
-                <th>Login</th>
-                <td>{{login}}</td>
-            </tr>
-            <tr>
-                <th>Adresse</th>
-                <td>{{address}}</td>
-            </tr>
-            <tr>
-                <th>Code postal</th>
-                <td>{{zipCode}}</td>
-            </tr>
-            <tr>
-                <th>Ville</th>
-                <td>{{city}}</td>
-            </tr>
-            <tr>
-                <th>Pays</th>
-                <td>{{contry}}</td>
-            </tr>
-            <tr>
-                <th>Téléphone</th>
-                <td>{{phone}}</td>
-            </tr>
-
-        </tbody>
-    </table>
-
+            </tbody>
+        </table>
+    </div>
 </body>
